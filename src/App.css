@@ -6,3 +6,39 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.ArticleList {
+  list-style-type: none;
+  padding: 0.8rem;
+}
+
+.ArticleCard {
+  border: 1px solid black;
+  padding: 0.2rem 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.article-card-date {
+  text-align: right;
+  margin-top: none;
+}
+
+.article-card-title {
+  text-align: center;
+}
+
+.article-card-author-topic {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  margin-top: -1.8rem;
+}
+
+.article-card-votes-comments {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: -1rem;
+}

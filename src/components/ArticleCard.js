@@ -8,15 +8,15 @@ export default function ArticleCard({
 }) {
   return (
     <article className="ArticleCard">
-      <p>{date}</p>
-      <h2>{title}</h2>
+      <p className="article-card-date">{date.slice(0, 10)}</p>
+      <h2 className="article-card-title">{title}</h2>
       <div className="article-card-author-topic">
-        <h3>{author}</h3>
-        <p>{topic}</p>
+        <p>Written by: {author}</p>
+        <p>Topic: {topic}</p>
       </div>
       <div className="article-card-votes-comments">
-        <p>{votes}</p>
-        <p>{comments}</p>
+        <p>{votes} votes</p>
+        <p>{comments} comments</p>
       </div>
     </article>
   );
