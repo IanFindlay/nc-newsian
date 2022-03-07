@@ -5,7 +5,5 @@ const newsianApi = axios.create({
 });
 
 export function getArticles(pageNumber) {
-  return newsianApi
-    .get(`/articles?p=${pageNumber}`)
-    .then(({ data: { articles } }) => articles);
+  return newsianApi.get(`/articles?p=${pageNumber}`).then(({ data }) => data);
 }
