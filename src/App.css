@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 2.4rem;
+}
+
 .Navigation {
   display: flex;
   justify-content: space-evenly;
@@ -12,6 +23,17 @@
   padding: 0.8rem;
 }
 
+.error-message {
+  text-align: center;
+  color: red;
+}
+
+.article-list-pagination {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .ArticleCard {
   border: 1px solid black;
   padding: 0.2rem 0.8rem;
@@ -20,11 +42,12 @@
 
 .article-card-date {
   text-align: right;
-  margin-top: none;
+  margin: 0;
 }
 
 .article-card-title {
   text-align: center;
+  margin-top: 0.2rem;
 }
 
 .article-card-author-topic {
