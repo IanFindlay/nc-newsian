@@ -1,7 +1,9 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./App.css";
-import Title from "./components/Title";
+import ArticleList from "./components/ArticleList";
 import Navigation from "./components/Navigation";
-import { BrowserRouter } from "react-router-dom";
+import Title from "./components/Title";
 
 function App() {
   return (
@@ -10,6 +12,9 @@ function App() {
         <Title />
         <Navigation />
       </header>
+      <Routes>
+        <Route path="/articles" element={<ArticleList />} />
+      </Routes>
     </BrowserRouter>
   );
 }
