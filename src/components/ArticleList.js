@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import * as api from "../utils/api";
 import ArticleCard from "./ArticleCard";
@@ -9,6 +10,7 @@ export default function ArticleList() {
   const [isLoading, setIsLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [maxPage, setMaxPage] = useState(0);
+  const { topic } = useParams();
 
   const incrementPage = (amount) => {
     setPageNumber((currentPage) => currentPage + amount);
@@ -17,7 +19,7 @@ export default function ArticleList() {
   useEffect(() => {
     setIsLoading(true);
     api
-      .getArticles(pageNumber)
+      .getArticles(pageNumber, topic)
       .then(({ articles, total_count: totalCount }) => {
         setArticles(articles);
         setIsLoading(false);
@@ -28,7 +30,7 @@ export default function ArticleList() {
         setError("Unable to retrieve articles, please try again later");
         setIsLoading(false);
       });
-  }, [pageNumber]);
+  }, [pageNumber, topic]);
 
   if (error) return <h3 className="error-message">{error}</h3>;
   if (isLoading) return <h3>Retrieving articles...</h3>;
