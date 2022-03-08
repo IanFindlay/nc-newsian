@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import * as api from "../utils/api";
 import ArticleCard from "./ArticleCard";
 
-export default function Articles() {
+export default function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
