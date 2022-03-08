@@ -13,3 +13,9 @@ export function getArticles(pageNumber, topic) {
 export function getTopics() {
   return newsianApi.get("/topics").then(({ data: { topics } }) => topics);
 }
+
+export function getArticleById(articleId) {
+  return newsianApi
+    .get(`/articles/${articleId}`)
+    .then(({ data: { article } }) => article);
+}
