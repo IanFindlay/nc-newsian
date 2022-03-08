@@ -32,6 +32,10 @@ export default function ArticleList() {
       });
   }, [pageNumber, topic]);
 
+  useEffect(() => {
+    setPageNumber(1);
+  }, [topic]);
+
   if (error) return <h3 className="error-message">{error}</h3>;
   if (isLoading) return <h3>Retrieving articles...</h3>;
 

@@ -20,14 +20,13 @@ export default function TopicDropdown() {
 
   return (
     <section>
-      <label htmlFor="topic">Topic:</label>
-
       <select
         disabled={isLoading}
         onChange={(e) => {
           navigate(e.target.value);
         }}
       >
+        <option>Select topic</option>
         <option value={"/articles"}>All</option>
         {topics.map((topic) => {
           return (

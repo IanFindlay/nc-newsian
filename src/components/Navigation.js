@@ -7,7 +7,6 @@ export default function Navigation() {
     <nav className="Navigation">
       <Link to="/">Home</Link>
       <TopicDropdown />
-      <Link to="/articles">All Articles</Link>
     </nav>
   );
 }
