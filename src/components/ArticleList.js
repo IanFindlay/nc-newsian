@@ -5,7 +5,7 @@ import ArticleCard from "./ArticleCard";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [maxPage, setMaxPage] = useState(0);
@@ -22,9 +22,11 @@ export default function Articles() {
         setArticles(articles);
         setIsLoading(false);
         setMaxPage(Math.floor(totalCount / 10) + 1);
+        setError(null);
       })
       .catch(() => {
         setError("Unable to retrieve articles, please try again later");
+        setIsLoading(false);
       });
   }, [pageNumber]);
 
