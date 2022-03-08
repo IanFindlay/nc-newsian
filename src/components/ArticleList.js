@@ -26,8 +26,10 @@ export default function ArticleList() {
         setMaxPage(Math.floor(totalCount / 10) + 1);
         setError(null);
       })
-      .catch(() => {
-        setError("Unable to retrieve articles, please try again later");
+      .catch((err) => {
+        if (err.response.status !== 404) {
+          setError("Unable to retrieve articles, please try again later");
+        }
         setIsLoading(false);
       });
   }, [pageNumber, topic]);
