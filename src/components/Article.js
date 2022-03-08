@@ -20,23 +20,19 @@ export default function Article() {
 
   return (
     <article className="Article">
-      <section className="article-button-topic">
-        <p className="article-topic">{content.topic.toUpperCase()} |</p>
-        <button
-          className="article-button-close"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          X
-        </button>
-      </section>
-      <h2>{content.title}</h2>
-      <section className="article-author-date">
-        <p>{content.author}</p>
-        <p>{content.created_at.slice(0, 10)}</p>
-      </section>
-      <p>{content.body}</p>
+      <button
+        className="Article-button-close"
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        close
+      </button>
+      <p className="Article-topic">{content.topic.toUpperCase()}</p>
+      <p className="Article-date">{content.created_at.slice(0, 10)}</p>
+      <h2 className="Article-title">{content.title}</h2>
+      <p className="Article-author">by {content.author}</p>
+      <p className="Article-body">{content.body}</p>
     </article>
   );
 }
