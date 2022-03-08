@@ -11,7 +11,7 @@ export default function ArticleCard({
 }) {
   return (
     <Link
-      to={`/articles/${articleId}/${encodeURI(
+      to={`/articles/${articleId}/${encodeURIComponent(
         title.toLowerCase().replace(/\s/g, "-")
       )}`}
     >
