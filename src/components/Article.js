@@ -14,7 +14,7 @@ export default function Article() {
       setContent(article);
       setIsLoading(false);
     });
-  }, []);
+  }, [articleId]);
 
   if (isLoading) return <h3>Retrieving article...</h3>;
 

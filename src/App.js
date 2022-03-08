@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Article from "./components/Article";
 import ArticleList from "./components/ArticleList";
-import Navigation from "./components/Navigation";
 import Title from "./components/Title";
 
 function App() {
