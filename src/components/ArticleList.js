@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import * as api from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import Navigation from "./Navigation";
 
 export default function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -47,6 +48,7 @@ export default function ArticleList() {
 
   return (
     <div>
+      <Navigation />
       <h2>{topicTitle}</h2>
       <ul className="ArticleList">
         {articles.map((article) => {

@@ -12,7 +12,6 @@ function App() {
       <main className="App">
         <header>
           <Title />
-          <Navigation />
         </header>
         <Routes>
           <Route path="/articles" element={<ArticleList />} />

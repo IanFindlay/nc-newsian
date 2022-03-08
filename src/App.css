@@ -72,3 +72,33 @@ h1 {
 
   margin-bottom: -1rem;
 }
+
+.Article {
+  padding: 0.8rem 1.6rem;
+  margin: 1rem;
+  border: 1px solid black;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.article-button-topic {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  font-size: 1.2rem;
+}
+
+.article-button-close {
+  background: inherit;
+  border: 1px solid darkgray;
+  font-size: 1.2rem;
+  color: darkgray;
+}
+
+.article-author-date {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
