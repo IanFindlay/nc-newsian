@@ -35,11 +35,7 @@ export default function Articles() {
     <div>
       <ul className="ArticleList">
         {articles.map((article) => {
-          return (
-            <li key={article.article_id}>
-              <ArticleCard {...article} />
-            </li>
-          );
+          return <ArticleCard key={article.article_id} {...article} />;
         })}
       </ul>
       <div className="article-list-pagination">

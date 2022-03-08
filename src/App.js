@@ -8,13 +8,15 @@ import Title from "./components/Title";
 function App() {
   return (
     <BrowserRouter>
-      <header className="App">
-        <Title />
-        <Navigation />
-      </header>
-      <Routes>
-        <Route path="/articles" element={<ArticleList />} />
-      </Routes>
+      <main className="App">
+        <header>
+          <Title />
+          <Navigation />
+        </header>
+        <Routes>
+          <Route path="/articles" element={<ArticleList />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

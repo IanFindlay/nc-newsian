@@ -7,7 +7,7 @@ export default function ArticleCard({
   comment_count: comments,
 }) {
   return (
-    <article className="ArticleCard">
+    <li className="ArticleCard">
       <p className="article-card-date">{date.slice(0, 10)}</p>
       <h2 className="article-card-title">{title}</h2>
       <div className="article-card-author-topic">
@@ -15,9 +15,9 @@ export default function ArticleCard({
         <p>Topic: {topic}</p>
       </div>
       <div className="article-card-votes-comments">
-        <p>{votes} votes</p>
-        <p>{comments} comments</p>
+        <p>{votes}</p>
+        <p>{comments}</p>
       </div>
-    </article>
+    </li>
   );
 }
