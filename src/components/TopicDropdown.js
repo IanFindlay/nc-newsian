@@ -31,7 +31,7 @@ export default function TopicDropdown() {
         <option value={"/articles"}>All</option>
         {topics.map((topic) => {
           return (
-            <option key={topic.slug} value={`/articles/${topic.slug}`}>
+            <option key={topic.slug} value={`/topics/${topic.slug}`}>
               {topic.slug}
             </option>
           );
