@@ -15,8 +15,8 @@ export default function ArticleCard({
         <p>Topic: {topic}</p>
       </div>
       <div className="article-card-votes-comments">
-        <p>{votes}</p>
-        <p>{comments}</p>
+        <p>Votes: {votes}</p>
+        <p>Comments: {comments}</p>
       </div>
     </li>
   );
