@@ -15,6 +15,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/articles" element={<ArticleList />} />
+          <Route path="/topics/:topic" element={<ArticleList />} />
         </Routes>
       </main>
     </BrowserRouter>
