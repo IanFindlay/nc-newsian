@@ -10,13 +10,10 @@ export default function TopicDropdown() {
 
   useEffect(() => {
     setIsLoading(true);
-    api
-      .getTopics()
-      .then((topicList) => {
-        setTopics(topicList);
-        setIsLoading(false);
-      })
-      .catch(console.log);
+    api.getTopics().then((topicList) => {
+      setTopics(topicList);
+      setIsLoading(false);
+    });
   }, []);
 
   return (
