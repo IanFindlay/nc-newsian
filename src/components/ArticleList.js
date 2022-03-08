@@ -36,11 +36,16 @@ export default function ArticleList() {
     setPageNumber(1);
   }, [topic]);
 
+  const topicTitle = topic
+    ? `${topic[0].toUpperCase() + topic.slice(1)} Articles`
+    : "All Articles";
+
   if (error) return <h3 className="error-message">{error}</h3>;
   if (isLoading) return <h3>Retrieving articles...</h3>;
 
   return (
     <div>
+      <h2>{topicTitle}</h2>
       <ul className="ArticleList">
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} {...article} />;
