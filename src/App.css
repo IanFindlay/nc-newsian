@@ -1,3 +1,74 @@
 .App {
   text-align: center;
 }
+
+@media screen and (min-width: 960px) {
+  .App {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 0;
+}
+
+.Title > h2 {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 2.4rem;
+}
+
+.Navigation {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ArticleList {
+  list-style-type: none;
+  padding: 0.8rem;
+}
+
+.error-message {
+  text-align: center;
+  color: red;
+}
+
+.article-list-pagination {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ArticleCard {
+  border: 1px solid black;
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.article-card-date {
+  text-align: right;
+  margin: 0;
+}
+
+.article-card-title {
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+.article-card-author-topic {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  margin-top: -1.8rem;
+}
+
+.article-card-votes-comments {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: -1rem;
+}
