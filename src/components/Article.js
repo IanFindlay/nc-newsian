@@ -26,7 +26,7 @@ export default function Article() {
           navigate(-1);
         }}
       >
-        close
+        back
       </button>
       <p className="Article-topic">{content.topic.toUpperCase()}</p>
       <p className="Article-date">{content.created_at.slice(0, 10)}</p>
@@ -39,7 +39,7 @@ export default function Article() {
           navigate(-1);
         }}
       >
-        close
+        back
       </button>
     </article>
   );
