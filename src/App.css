@@ -169,7 +169,7 @@ h1 {
 
   font-size: 1.2rem;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .Article-arrow {

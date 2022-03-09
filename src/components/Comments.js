@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 
 import * as api from "../utils/api";
 
-export default function ({ articleId }) {
+export default function Comments({ articleId }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const commentRef = useRef(null);
