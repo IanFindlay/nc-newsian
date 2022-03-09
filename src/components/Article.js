@@ -73,7 +73,7 @@ export default function Article() {
         </div>
         <p className="Article-error">{error}</p>
       </section>
-      <CollapseWrapper>
+      <CollapseWrapper commentCount={content.comment_count}>
         <Comments articleId={articleId} />
       </CollapseWrapper>
       <button
