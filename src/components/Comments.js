@@ -17,12 +17,12 @@ export default function ({ articleId }) {
       .catch(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [articleId]);
 
   if (isLoading) return <h3>Retrieving comments...</h3>;
 
   return (
-    <section>
+    <section className={"Comments"}>
       <h3>Comments:</h3>
       {comments.map((comment) => {
         return (
