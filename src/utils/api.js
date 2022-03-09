@@ -19,3 +19,7 @@ export function getArticleById(articleId) {
     .get(`/articles/${articleId}`)
     .then(({ data: { article } }) => article);
 }
+
+export function patchArticleVotes(articleId, amount) {
+  return newsianApi.patch(`/articles/${articleId}`, { inc_votes: amount });
+}

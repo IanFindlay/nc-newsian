@@ -6,6 +6,8 @@ export default function Article() {
   const { articleId } = useParams();
   const [content, setContent] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [voteCount, setVoteCount] = useState(0);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,6 +17,17 @@ export default function Article() {
       setIsLoading(false);
     });
   }, [articleId]);
+
+  const voteOnArticle = (amount) => {
+    setVoteCount((current) => {
+      return current + amount;
+    });
+    setError(null);
+    api.patchArticleVotes(articleId, amount).catch(() => {
+      setVoteCount((current) => current - amount);
+      setError("Vote failed");
+    });
+  };
 
   if (isLoading) return <h3>Retrieving article...</h3>;
 
@@ -42,9 +55,28 @@ export default function Article() {
         back
       </button>
       <section className="Article-voting">
-        <button className="Article-button Article-arrow">&#9650;</button>
-        <p>{content.votes}</p>
-        <button className="Article-button Article-arrow">&#9660;</button>
+        <div>
+          <button
+            className="Article-button Article-arrow"
+            onClick={() => {
+              voteOnArticle(1);
+            }}
+            disabled={voteCount === 1}
+          >
+            &#9650;
+          </button>
+          <p>{content.votes + voteCount}</p>
+          <button
+            className="Article-button Article-arrow"
+            onClick={() => {
+              voteOnArticle(-1);
+            }}
+            disabled={voteCount === -1}
+          >
+            &#9660;
+          </button>
+        </div>
+        <p className="Article-error">{error}</p>
       </section>
     </article>
   );
