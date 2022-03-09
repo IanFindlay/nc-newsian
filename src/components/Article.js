@@ -34,13 +34,18 @@ export default function Article() {
       <p className="Article-author">by {content.author}</p>
       <p className="Article-body">{content.body}</p>
       <button
-        className="Article-button Article-button-bottom"
+        className="Article-button-bottom Article-button"
         onClick={() => {
           navigate(-1);
         }}
       >
         back
       </button>
+      <section className="Article-voting">
+        <button className="Article-button Article-arrow">&#9650;</button>
+        <p>{content.votes}</p>
+        <button className="Article-button Article-arrow">&#9660;</button>
+      </section>
     </article>
   );
 }

@@ -98,14 +98,16 @@ h1 {
   padding: 0.6rem 0.6rem 0.6rem 1.2rem;
 }
 
+.Article-button {
+  background-color: inherit;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
 .Article-button-top {
   grid-column: 4;
   grid-row: 1;
   align-self: start;
-
-  background-color: inherit;
-  border: none;
-  font-weight: bold;
 }
 
 .Article-button-bottom {
@@ -113,14 +115,6 @@ h1 {
   grid-row: -1;
   justify-self: center;
   align-self: start;
-
-  background-color: inherit;
-  border: none;
-  font-weight: bold;
-}
-
-.Article-button:hover {
-  cursor: pointer;
 }
 
 .Article-topic {
@@ -166,4 +160,17 @@ h1 {
   font-size: 1.2rem;
   margin-top: 0.2rem;
   margin-bottom: 1rem;
+}
+
+.Article-voting {
+  grid-column: 1;
+  grid-row: -1;
+  justify-self: start;
+
+  font-size: 1.2rem;
+}
+
+.Article-arrow {
+  font-weight: bold;
+  font-size: inherit;
 }
