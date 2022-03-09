@@ -49,6 +49,9 @@ export default function Article() {
       <h2 className="Article-title">{content.title}</h2>
       <p className="Article-author">by {content.author}</p>
       <p className="Article-body">{content.body}</p>
+      <CollapseWrapper commentCount={content.comment_count}>
+        <Comments articleId={articleId} />
+      </CollapseWrapper>
       <section className="Article-voting">
         <div>
           <button
@@ -73,9 +76,6 @@ export default function Article() {
         </div>
         <p className="Article-error">{error}</p>
       </section>
-      <CollapseWrapper commentCount={content.comment_count}>
-        <Comments articleId={articleId} />
-      </CollapseWrapper>
       <button
         className="Article-button Article-button-bottom"
         onClick={() => {
