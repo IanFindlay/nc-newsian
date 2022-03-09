@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .App {
   font-size: 16px;
   text-align: center;
@@ -33,7 +38,6 @@ h1 {
 }
 
 .ArticleList {
-  list-style-type: none;
   padding: 0.8rem;
 }
 
@@ -200,4 +204,30 @@ h1 {
   font-size: 0.8rem;
   color: red;
   margin-left: 0.6rem;
+}
+
+.CommentCard {
+  display: grid;
+  padding: 0.8rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, max-content);
+  row-gap: 0.8rem;
+}
+
+.CommentCard-author {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.CommentCard-date {
+  grid-column: 3;
+  grid-row: 3;
+  font-size: 0.8rem;
+}
+
+.CommentCard-body {
+  grid-column: 1 / 4;
+  grid-row: 2;
 }

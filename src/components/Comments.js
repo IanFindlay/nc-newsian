@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 
 import * as api from "../utils/api";
+import CommentCard from "./CommentCard";
 
 export default function Comments({ articleId }) {
   const [comments, setComments] = useState([]);
@@ -31,15 +32,11 @@ export default function Comments({ articleId }) {
   return (
     <section className="Comments">
       <h3 ref={commentRef}>Comments:</h3>
-      {comments.map((comment) => {
-        return (
-          <section key={comment.created_at}>
-            <p>{comment.created_at}</p>
-            <p>{comment.author}</p>
-            <p>{comment.body}</p>
-          </section>
-        );
-      })}
+      <ul>
+        {comments.map((comment) => (
+          <CommentCard key={comment.created_at} comment={comment} />
+        ))}
+      </ul>
     </section>
   );
 }
