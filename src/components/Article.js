@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 import * as api from "../utils/api";
+import Comments from "./Comments";
 
 export default function Article() {
   const { articleId } = useParams();
@@ -32,52 +34,55 @@ export default function Article() {
   if (isLoading) return <h3>Retrieving article...</h3>;
 
   return (
-    <article className="Article">
-      <button
-        className="Article-button Article-button-top"
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        back
-      </button>
-      <p className="Article-topic">{content.topic.toUpperCase()}</p>
-      <p className="Article-date">{content.created_at.slice(0, 10)}</p>
-      <h2 className="Article-title">{content.title}</h2>
-      <p className="Article-author">by {content.author}</p>
-      <p className="Article-body">{content.body}</p>
-      <button
-        className="Article-button-bottom Article-button"
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        back
-      </button>
-      <section className="Article-voting">
-        <div>
-          <button
-            className="Article-button Article-arrow"
-            onClick={() => {
-              voteOnArticle(1);
-            }}
-            disabled={voteCount === 1}
-          >
-            &#9650;
-          </button>
-          <p>{content.votes + voteCount}</p>
-          <button
-            className="Article-button Article-arrow"
-            onClick={() => {
-              voteOnArticle(-1);
-            }}
-            disabled={voteCount === -1}
-          >
-            &#9660;
-          </button>
-        </div>
-        <p className="Article-error">{error}</p>
-      </section>
-    </article>
+    <section>
+      <article className="Article">
+        <button
+          className="Article-button Article-button-top"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          back
+        </button>
+        <p className="Article-topic">{content.topic.toUpperCase()}</p>
+        <p className="Article-date">{content.created_at.slice(0, 10)}</p>
+        <h2 className="Article-title">{content.title}</h2>
+        <p className="Article-author">by {content.author}</p>
+        <p className="Article-body">{content.body}</p>
+        <button
+          className="Article-button-bottom Article-button"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          back
+        </button>
+        <section className="Article-voting">
+          <div>
+            <button
+              className="Article-button Article-arrow"
+              onClick={() => {
+                voteOnArticle(1);
+              }}
+              disabled={voteCount === 1}
+            >
+              &#9650;
+            </button>
+            <p>{content.votes + voteCount}</p>
+            <button
+              className="Article-button Article-arrow"
+              onClick={() => {
+                voteOnArticle(-1);
+              }}
+              disabled={voteCount === -1}
+            >
+              &#9660;
+            </button>
+          </div>
+          <p className="Article-error">{error}</p>
+        </section>
+      </article>
+      <Comments articleId={articleId} />
+    </section>
   );
 }

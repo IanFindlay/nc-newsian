@@ -23,3 +23,9 @@ export function getArticleById(articleId) {
 export function patchArticleVotes(articleId, amount) {
   return newsianApi.patch(`/articles/${articleId}`, { inc_votes: amount });
 }
+
+export function getArticleComments(articleId) {
+  return newsianApi
+    .get(`articles/${articleId}/comments`)
+    .then(({ data: { comments } }) => comments);
+}
