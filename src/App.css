@@ -17,7 +17,7 @@
 
 h1 {
   font-size: 2.4rem;
-  margin: 0.6rem 0.6rem 0 0.6rem;
+  margin: 1.8rem 0.6rem 0 0.6rem;
 }
 
 .subtitle {
@@ -87,7 +87,7 @@ h1 {
 .Article {
   display: grid;
   grid-template-columns: max-content 2fr max-content max-content;
-  grid-template-rows: max-content max-content 1.6rem 2fr auto;
+  grid-template-rows: max-content max-content 1.6rem max-content 2rem max-content max-content;
 
   margin: 1.2rem;
   border: 2px solid darkgray;
@@ -98,9 +98,20 @@ h1 {
   padding: 0.6rem 0.6rem 0.6rem 1.2rem;
 }
 
-.Article-button-close {
+.Article-button-top {
   grid-column: 4;
   grid-row: 1;
+  align-self: start;
+
+  background-color: inherit;
+  border: none;
+  font-weight: bold;
+}
+
+.Article-button-bottom {
+  grid-column: 1 / 5;
+  grid-row: -1;
+  justify-self: center;
   align-self: start;
 
   background-color: inherit;
@@ -144,7 +155,7 @@ h1 {
 
 .Article-body {
   grid-column: 1 / 5;
-  grid-row: -1;
+  grid-row: 6;
   align-self: start;
 
   text-align: left;
