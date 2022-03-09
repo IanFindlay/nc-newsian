@@ -119,6 +119,10 @@ h1 {
   font-weight: bold;
 }
 
+.Article-button:hover {
+  cursor: pointer;
+}
+
 .Article-topic {
   grid-column: 1;
   grid-row: 2;

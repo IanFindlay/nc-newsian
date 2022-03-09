@@ -21,7 +21,7 @@ export default function Article() {
   return (
     <article className="Article">
       <button
-        className="Article-button-top"
+        className="Article-button Article-button-top"
         onClick={() => {
           navigate(-1);
         }}
@@ -34,7 +34,7 @@ export default function Article() {
       <p className="Article-author">by {content.author}</p>
       <p className="Article-body">{content.body}</p>
       <button
-        className="Article-button-bottom"
+        className="Article-button Article-button-bottom"
         onClick={() => {
           navigate(-1);
         }}
