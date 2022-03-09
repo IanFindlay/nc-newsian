@@ -1,10 +1,10 @@
 export default function Title() {
   return (
-    <section>
+    <section className="Title">
       <h1>NC-Newsian</h1>
-      <h2>
+      <p className="subtitle">
         A frontend built for an example news database using the React framework
-      </h2>
+      </p>
     </section>
   );
 }
