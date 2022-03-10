@@ -10,6 +10,7 @@ export default function Article() {
   const [content, setContent] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
+  const [userCommentCount, setUserCommentCount] = useState(0);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -49,8 +50,15 @@ export default function Article() {
       <h2 className="Article-title">{content.title}</h2>
       <p className="Article-author">by {content.author}</p>
       <p className="Article-body">{content.body}</p>
-      <CollapseWrapper commentCount={content.comment_count}>
-        <Comments articleId={articleId} commentCount={content.comment_count} />
+      <CollapseWrapper
+        commentCount={content.comment_count}
+        userCommentCount={userCommentCount}
+      >
+        <Comments
+          articleId={articleId}
+          commentCount={content.comment_count}
+          setUserCommentCount={setUserCommentCount}
+        />
       </CollapseWrapper>
       <section className="Article-voting">
         <div>

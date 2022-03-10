@@ -223,10 +223,10 @@ h1 {
 
 .CommentCard {
   display: grid;
-  padding: 0.8rem;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, max-content);
   row-gap: 0.8rem;
+  padding: 0.8rem;
 }
 
 .CommentCard-author {
@@ -234,6 +234,16 @@ h1 {
   grid-row: 1;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.CommentCard-button-delete {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.CommentCard-delete-success {
+  color: green;
+  font-size: 1rem;
 }
 
 .CommentCard-date {
