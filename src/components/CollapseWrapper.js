@@ -4,7 +4,7 @@ export default function CollapseWrapper({ commentCount, children }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   return (
-    <section className={"Article-comments"}>
+    <section className="Article-comments">
       <button
         onClick={() => {
           setIsCollapsed(!isCollapsed);
