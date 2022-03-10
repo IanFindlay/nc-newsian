@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import * as api from "../utils/api";
 import UserContext from "../contexts/UserContext";
@@ -18,11 +18,12 @@ export default function PostComment({
     setPostingComment(true);
     setSuccess(null);
     setNewCommentError(null);
-    const body = e.target.body.value;
+    const commentBody = e.target.body.value;
     api
-      .postComment(articleId, loggedInUser, body)
+      .postComment(articleId, loggedInUser, commentBody)
       .then((comment) => {
         setPostingComment(false);
+        e.target.body.value = "";
         setUserCommentCount((current) => current + 1);
         setComments((current) => {
           const newComments = [...current];
