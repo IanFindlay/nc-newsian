@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 import * as api from "../utils/api";
+import CollapseWrapper from "./CollapseWrapper";
+import Comments from "./Comments";
 
 export default function Article() {
   const { articleId } = useParams();
@@ -46,14 +49,9 @@ export default function Article() {
       <h2 className="Article-title">{content.title}</h2>
       <p className="Article-author">by {content.author}</p>
       <p className="Article-body">{content.body}</p>
-      <button
-        className="Article-button-bottom Article-button"
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        back
-      </button>
+      <CollapseWrapper commentCount={content.comment_count}>
+        <Comments articleId={articleId} commentCount={content.comment_count} />
+      </CollapseWrapper>
       <section className="Article-voting">
         <div>
           <button
@@ -78,6 +76,14 @@ export default function Article() {
         </div>
         <p className="Article-error">{error}</p>
       </section>
+      <button
+        className="Article-button Article-button-bottom"
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        back
+      </button>
     </article>
   );
 }
