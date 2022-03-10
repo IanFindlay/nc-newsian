@@ -16,7 +16,7 @@ export default function SortByDropdown({ sortBy, setSortBy }) {
           author
         </option>
         <option key="comments" value="comment_count">
-          number of comments
+          comments
         </option>
         <option key="date" value="date">
           date
