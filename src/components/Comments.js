@@ -6,6 +6,7 @@ import CommentCard from "./CommentCard";
 export default function Comments({ articleId }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const commentRef = useRef(null);
 
   useEffect(() => {
@@ -23,11 +24,13 @@ export default function Comments({ articleId }) {
         scrollToComments();
       })
       .catch(() => {
+        setError("Failed to retrieve comments");
         setIsLoading(false);
       });
   }, [articleId]);
 
   if (isLoading) return <h3>Retrieving comments...</h3>;
+  if (error) return <h3 className="error-message">{error}</h3>;
 
   return (
     <section className="Comments">
