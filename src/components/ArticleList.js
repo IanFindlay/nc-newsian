@@ -52,7 +52,13 @@ export default function ArticleList() {
       <h2>{topicTitle}</h2>
       <ul className="ArticleList">
         {articles.map((article) => {
-          return <ArticleCard key={article.article_id} {...article} />;
+          return (
+            <ArticleCard
+              key={article.article_id}
+              article={article}
+              topic={topic}
+            />
+          );
         })}
       </ul>
       <div className="article-list-pagination">
