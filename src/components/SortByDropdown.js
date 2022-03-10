@@ -1,8 +1,11 @@
 export default function SortByDropdown({ sortBy, setSortBy }) {
   return (
-    <section>
-      <label htmlFor="sortBy">Sort By</label>
+    <div className="SortByDropdown">
+      <label htmlFor="sortBy" className="sort-label">
+        Sort By
+      </label>
       <select
+        className="sort-select"
         defaultValue={sortBy}
         name="sortBy"
         onChange={(e) => {
@@ -25,6 +28,6 @@ export default function SortByDropdown({ sortBy, setSortBy }) {
           votes
         </option>
       </select>
-    </section>
+    </div>
   );
 }

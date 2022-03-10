@@ -14,6 +14,7 @@ export default function ArticleList() {
   const [maxPage, setMaxPage] = useState(0);
   const { topic } = useParams();
   const [sortBy, setSortBy] = useState("date");
+  const [order, setOrder] = useState("desc");
 
   const incrementPage = (amount) => {
     setPageNumber((currentPage) => currentPage + amount);
@@ -22,7 +23,7 @@ export default function ArticleList() {
   useEffect(() => {
     setIsLoading(true);
     api
-      .getArticles(pageNumber, topic, sortBy)
+      .getArticles(pageNumber, topic, sortBy, order)
       .then(({ articles, total_count: totalCount }) => {
         setArticles(articles);
         setIsLoading(false);
@@ -35,7 +36,7 @@ export default function ArticleList() {
         }
         setIsLoading(false);
       });
-  }, [pageNumber, topic, sortBy]);
+  }, [pageNumber, topic, sortBy, order]);
 
   useEffect(() => {
     setPageNumber(1);
@@ -51,7 +52,12 @@ export default function ArticleList() {
   return (
     <div>
       <Navigation />
-      <QueryBar sortBy={sortBy} setSortBy={setSortBy} />
+      <QueryBar
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        order={order}
+        setOrder={setOrder}
+      />
       <h2>{topicTitle}</h2>
       <ul className="ArticleList">
         {articles.map((article) => {
