@@ -74,13 +74,7 @@ export default function Comments({
           Post Comment
         </button>
       </form>
-      <p
-        className={`error-message Comments-new-error-${
-          newCommentError ? true : false
-        }`}
-      >
-        {newCommentError}
-      </p>
+      <p className="error-message">{newCommentError}</p>
       <ul>
         {comments.map((comment) => (
           <CommentCard key={comment.created_at} comment={comment} />
