@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import * as api from "../utils/api";
 import CollapseWrapper from "./CollapseWrapper";
@@ -45,7 +45,9 @@ export default function Article() {
       >
         back
       </button>
-      <p className="Article-topic">{content.topic.toUpperCase()}</p>
+      <Link to={`/topics/${content.topic}`} className="Article-topic">
+        {content.topic.toUpperCase()}
+      </Link>
       <p className="Article-date">{content.created_at.slice(0, 10)}</p>
       <h2 className="Article-title">{content.title}</h2>
       <p className="Article-author">by {content.author}</p>
