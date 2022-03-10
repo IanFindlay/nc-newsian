@@ -7,9 +7,11 @@ export default function CommentCard({ comment, setUserCommentCount }) {
   const { loggedInUser } = useContext(UserContext);
   const [isDeleted, setIsDeleted] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [error, setError] = useState(null);
 
   const deleteComment = () => {
     setIsDeleting(true);
+    setError(null);
     api
       .deleteComment(comment.comment_id)
       .then(() => {
@@ -19,6 +21,7 @@ export default function CommentCard({ comment, setUserCommentCount }) {
       })
       .catch(() => {
         setIsDeleting(false);
+        setError("Failed to delete comment");
       });
   };
 
@@ -40,11 +43,14 @@ export default function CommentCard({ comment, setUserCommentCount }) {
     );
 
   return (
-    <li className="CommentCard">
-      <p className="CommentCard-author">{comment.author}</p>
-      <p className="CommentCard-date">{comment.created_at.slice(0, 10)}</p>
-      <p className="CommentCard-body">{comment.body}</p>
-      {loggedInUser === comment.author && deleteButton}
-    </li>
+    <>
+      <li className="CommentCard">
+        <p className="CommentCard-author">{comment.author}</p>
+        {loggedInUser === comment.author && deleteButton}
+        <p className="CommentCard-date">{comment.created_at.slice(0, 10)}</p>
+        <p className="CommentCard-body">{comment.body}</p>
+      </li>
+      {error && <h3 className="error-message">{error}</h3>}
+    </>
   );
 }

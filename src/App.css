@@ -223,10 +223,10 @@ h1 {
 
 .CommentCard {
   display: grid;
-  padding: 0.8rem;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, max-content);
   row-gap: 0.8rem;
+  padding: 0.8rem;
 }
 
 .CommentCard-author {
