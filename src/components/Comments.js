@@ -1,37 +1,19 @@
-import { useEffect, useState, useRef, useContext } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
-import UserContext from "../contexts/UserContext";
+import PostComment from "./PostComment";
 
 export default function Comments({
   articleId,
   commentCount,
+  userCommentCount,
   setUserCommentCount,
 }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [newCommentError, setNewCommentError] = useState(null);
-  const [postingComment, setPostingComment] = useState(false);
   const commentRef = useRef(null);
-  const { loggedInUser } = useContext(UserContext);
-
-  const postComment = (e) => {
-    setPostingComment(true);
-    setNewCommentError(null);
-    e.preventDefault();
-    const body = e.target.body.value;
-    api
-      .postComment(articleId, loggedInUser, body)
-      .then(() => {
-        setPostingComment(false);
-      })
-      .catch(() => {
-        setPostingComment(false);
-        setNewCommentError("Comment failed to post try submitting it again");
-      });
-  };
 
   useEffect(() => {
     const scrollToComments = () => {
@@ -42,7 +24,7 @@ export default function Comments({
     setIsLoading(true);
     setError(null);
     api
-      .getArticleComments(articleId, commentCount)
+      .getArticleComments(articleId, commentCount + userCommentCount)
       .then((fetchedComments) => {
         setComments(fetchedComments);
         setIsLoading(false);
@@ -52,7 +34,7 @@ export default function Comments({
         setError("Failed to retrieve comments");
         setIsLoading(false);
       });
-  }, [articleId, commentCount]);
+  }, [articleId]);
 
   if (isLoading) return <h3>Retrieving comments...</h3>;
   if (error) return <h3 className="error-message">{error}</h3>;
@@ -60,20 +42,11 @@ export default function Comments({
   return (
     <section className="Comments">
       <h3 ref={commentRef}>Comments:</h3>
-      <form onSubmit={postComment}>
-        <label htmlFor="commentInput">Add to the conversation</label>
-        <textarea
-          className="Comments-new-input"
-          type="TextArea"
-          name="body"
-          id="commentInput"
-          required
-        />
-        <button className="Comments-new-button" disabled={postingComment}>
-          Post Comment
-        </button>
-      </form>
-      <p className="error-message">{newCommentError}</p>
+      <PostComment
+        articleId={articleId}
+        setComments={setComments}
+        setUserCommentCount={setUserCommentCount}
+      />
       <ul>
         {comments.map((comment) => (
           <CommentCard

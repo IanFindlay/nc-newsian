@@ -57,6 +57,7 @@ export default function Article() {
         <Comments
           articleId={articleId}
           commentCount={content.comment_count}
+          userCommentCount={userCommentCount}
           setUserCommentCount={setUserCommentCount}
         />
       </CollapseWrapper>

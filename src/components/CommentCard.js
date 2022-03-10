@@ -36,11 +36,7 @@ export default function CommentCard({ comment, setUserCommentCount }) {
   );
 
   if (isDeleted)
-    return (
-      <h3 className="CommentCard-delete-success">
-        Comment successfully deleted
-      </h3>
-    );
+    return <h3 className="success-message">Comment successfully deleted</h3>;
 
   return (
     <>
@@ -50,6 +46,7 @@ export default function CommentCard({ comment, setUserCommentCount }) {
         <p className="CommentCard-date">{comment.created_at.slice(0, 10)}</p>
         <p className="CommentCard-body">{comment.body}</p>
       </li>
+      {isDeleting && <h3 className="info-message">Deleting message</h3>}
       {error && <h3 className="error-message">{error}</h3>}
     </>
   );
