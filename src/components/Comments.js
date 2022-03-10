@@ -1,7 +1,8 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 
 import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
+import UserContext from "../contexts/UserContext";
 
 export default function Comments({
   articleId,
@@ -12,12 +13,13 @@ export default function Comments({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const commentRef = useRef(null);
+  const { loggedInUser } = useContext(UserContext);
 
   const postComment = (e) => {
     e.preventDefault();
     const body = e.target.body.value;
     api
-      .postComment(articleId, "jessjelly", body)
+      .postComment(articleId, loggedInUser, body)
       .then(() => {
         setCommentCount((current) => current + 1);
       })
