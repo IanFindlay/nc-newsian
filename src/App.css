@@ -236,6 +236,16 @@ h1 {
   font-weight: bold;
 }
 
+.CommentCard-button-delete {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.CommentCard-delete-success {
+  color: green;
+  font-size: 1rem;
+}
+
 .CommentCard-date {
   grid-column: 3;
   grid-row: 3;

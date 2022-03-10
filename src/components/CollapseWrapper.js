@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-export default function CollapseWrapper({ commentCount, children }) {
+export default function CollapseWrapper({
+  commentCount,
+  userCommentCount,
+  children,
+}) {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   return (
@@ -10,7 +14,9 @@ export default function CollapseWrapper({ commentCount, children }) {
           setIsCollapsed(!isCollapsed);
         }}
       >
-        {isCollapsed ? `Show Comments (${commentCount})` : "Hide Comments"}
+        {isCollapsed
+          ? `Show Comments (${commentCount + userCommentCount})`
+          : "Hide Comments"}
       </button>
       {!isCollapsed && children}
     </section>

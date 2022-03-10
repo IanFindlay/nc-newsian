@@ -33,3 +33,7 @@ export function getArticleComments(articleId, limit) {
 export function postComment(articleId, username, body) {
   return newsianApi.post(`articles/${articleId}/comments`, { username, body });
 }
+
+export function deleteComment(commentId) {
+  return newsianApi.delete(`comments/${commentId}`);
+}

@@ -6,10 +6,10 @@ import UserContext from "../contexts/UserContext";
 
 export default function Comments({
   articleId,
-  commentCount: initialCommentCount,
+  commentCount,
+  setUserCommentCount,
 }) {
   const [comments, setComments] = useState([]);
-  const [commentCount, setCommentCount] = useState(initialCommentCount);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [newCommentError, setNewCommentError] = useState(null);
@@ -26,7 +26,6 @@ export default function Comments({
       .postComment(articleId, loggedInUser, body)
       .then(() => {
         setPostingComment(false);
-        setCommentCount((current) => current + 1);
       })
       .catch(() => {
         setPostingComment(false);
@@ -77,7 +76,11 @@ export default function Comments({
       <p className="error-message">{newCommentError}</p>
       <ul>
         {comments.map((comment) => (
-          <CommentCard key={comment.created_at} comment={comment} />
+          <CommentCard
+            key={comment.created_at}
+            comment={comment}
+            setUserCommentCount={setUserCommentCount}
+          />
         ))}
       </ul>
     </section>
