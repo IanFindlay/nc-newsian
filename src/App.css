@@ -207,9 +207,13 @@ h1 {
   border-top: 1px solid black;
 }
 
-.Comments-input {
-  margin-top: 1.2rem;
-  min-width: 15rem;
+.Comments > h3 {
+  margin-bottom: 1.2rem;
+}
+
+.Comments-new-input {
+  padding: 1rem;
+  width: 15rem;
   min-height: 5rem;
 }
 

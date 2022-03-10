@@ -52,7 +52,14 @@ export default function Comments({
     <section className="Comments">
       <h3 ref={commentRef}>Comments:</h3>
       <form onSubmit={postComment}>
-        <input className="Comments-input" type="text" name="body" required />
+        <label htmlFor="commentInput">Add to the conversation</label>
+        <textarea
+          className="Comments-new-input"
+          type="TextArea"
+          name="body"
+          id="commentInput"
+          required
+        />
         <button className="Comments-new-button">Post Comment</button>
       </form>
       <ul>
