@@ -29,3 +29,7 @@ export function getArticleComments(articleId, limit) {
     .get(`articles/${articleId}/comments?limit=${limit}`)
     .then(({ data: { comments } }) => comments);
 }
+
+export function postComment(articleId, username, body) {
+  return newsianApi.post(`articles/${articleId}/comments`, { username, body });
+}

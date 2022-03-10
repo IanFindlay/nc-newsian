@@ -3,11 +3,26 @@ import { useEffect, useState, useRef } from "react";
 import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
 
-export default function Comments({ articleId, commentCount }) {
+export default function Comments({
+  articleId,
+  commentCount: initialCommentCount,
+}) {
   const [comments, setComments] = useState([]);
+  const [commentCount, setCommentCount] = useState(initialCommentCount);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const commentRef = useRef(null);
+
+  const postComment = (e) => {
+    e.preventDefault();
+    const body = e.target.body.value;
+    api
+      .postComment(articleId, "jessjelly", body)
+      .then(() => {
+        setCommentCount((current) => current + 1);
+      })
+      .catch();
+  };
 
   useEffect(() => {
     const scrollToComments = () => {
@@ -36,6 +51,10 @@ export default function Comments({ articleId, commentCount }) {
   return (
     <section className="Comments">
       <h3 ref={commentRef}>Comments:</h3>
+      <form onSubmit={postComment}>
+        <input className="Comments-input" type="text" name="body" required />
+        <button className="Comments-new-button">Post Comment</button>
+      </form>
       <ul>
         {comments.map((comment) => (
           <CommentCard key={comment.created_at} comment={comment} />
