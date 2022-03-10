@@ -12,7 +12,7 @@ export default function ArticleCard({ article, topic }) {
         </div>
         <div className="article-card-votes-comments">
           <p>Votes: {article.votes}</p>
-          <p>Comments: {article.comments}</p>
+          <p>Comments: {article.comment_count}</p>
         </div>
       </li>
     </Link>

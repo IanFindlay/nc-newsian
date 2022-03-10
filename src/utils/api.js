@@ -4,9 +4,11 @@ const newsianApi = axios.create({
   baseURL: "https://ncnewsian.herokuapp.com/api",
 });
 
-export function getArticles(pageNumber, topic) {
+export function getArticles(pageNumber, topic, sort_by) {
   return newsianApi
-    .get("/articles", { params: { p: pageNumber, topic } })
+    .get("/articles", {
+      params: { p: pageNumber, topic, sort_by, order: "desc" },
+    })
     .then(({ data }) => data);
 }
 
