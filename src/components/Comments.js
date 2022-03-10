@@ -16,6 +16,7 @@ export default function Comments({ articleId, commentCount }) {
       });
     };
     setIsLoading(true);
+    setError(null);
     api
       .getArticleComments(articleId, commentCount)
       .then((fetchedComments) => {
