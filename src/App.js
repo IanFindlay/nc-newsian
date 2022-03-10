@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/articles" element={<ArticleList />} />
             <Route path="/topics/:topic" element={<ArticleList />} />
-            <Route path="/articles/:articleId/*" element={<Article />} />
+            <Route path="/articles/:articleId" element={<Article />} />
           </Routes>
         </main>
       </UserContext.Provider>

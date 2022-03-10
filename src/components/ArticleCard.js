@@ -10,12 +10,7 @@ export default function ArticleCard({
   comment_count: comments,
 }) {
   return (
-    <Link
-      className="Link"
-      to={`/articles/${articleId}/${encodeURIComponent(
-        title.toLowerCase().replace(/\s/g, "-")
-      )}`}
-    >
+    <Link className="Link" to={`/articles/${articleId}`}>
       <li className="ArticleCard">
         <p className="article-card-date">{date.slice(0, 10)}</p>
         <h2 className="article-card-title">{title}</h2>
