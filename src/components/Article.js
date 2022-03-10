@@ -50,7 +50,7 @@ export default function Article() {
       <p className="Article-author">by {content.author}</p>
       <p className="Article-body">{content.body}</p>
       <CollapseWrapper commentCount={content.comment_count}>
-        <Comments articleId={articleId} />
+        <Comments articleId={articleId} commentCount={content.comment_count} />
       </CollapseWrapper>
       <section className="Article-voting">
         <div>

@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
 
-export default function Comments({ articleId }) {
+export default function Comments({ articleId, commentCount }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ export default function Comments({ articleId }) {
     };
     setIsLoading(true);
     api
-      .getArticleComments(articleId)
+      .getArticleComments(articleId, commentCount)
       .then((fetchedComments) => {
         setComments(fetchedComments);
         setIsLoading(false);
@@ -27,7 +27,7 @@ export default function Comments({ articleId }) {
         setError("Failed to retrieve comments");
         setIsLoading(false);
       });
-  }, [articleId]);
+  }, [articleId, commentCount]);
 
   if (isLoading) return <h3>Retrieving comments...</h3>;
   if (error) return <h3 className="error-message">{error}</h3>;
