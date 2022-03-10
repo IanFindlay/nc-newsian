@@ -241,7 +241,7 @@ h1 {
   grid-row: 1;
 }
 
-.CommentCard-delete-success {
+.success-message {
   color: green;
   font-size: 1rem;
 }

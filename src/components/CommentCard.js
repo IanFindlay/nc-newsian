@@ -36,11 +36,7 @@ export default function CommentCard({ comment, setUserCommentCount }) {
   );
 
   if (isDeleted)
-    return (
-      <h3 className="CommentCard-delete-success">
-        Comment successfully deleted
-      </h3>
-    );
+    return <h3 className="success-message">Comment successfully deleted</h3>;
 
   return (
     <>

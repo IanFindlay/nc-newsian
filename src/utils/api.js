@@ -31,7 +31,9 @@ export function getArticleComments(articleId, limit) {
 }
 
 export function postComment(articleId, username, body) {
-  return newsianApi.post(`articles/${articleId}/comments`, { username, body });
+  return newsianApi
+    .post(`articles/${articleId}/comments`, { username, body })
+    .then(({ data: { comment } }) => comment);
 }
 
 export function deleteComment(commentId) {
