@@ -16,19 +16,16 @@ export default function Comments({
   const commentRef = useRef(null);
 
   useEffect(() => {
-    const scrollToComments = () => {
-      commentRef.current.scrollIntoView({
-        behaviour: "smooth",
-      });
-    };
     setIsLoading(true);
     setError(null);
     api
-      .getArticleComments(articleId, commentCount + userCommentCount)
+      .getArticleComments(articleId)
       .then((fetchedComments) => {
         setComments(fetchedComments);
         setIsLoading(false);
-        scrollToComments();
+        commentRef.current.scrollIntoView({
+          behaviour: "smooth",
+        });
       })
       .catch(() => {
         setError("Failed to retrieve comments");
