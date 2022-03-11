@@ -252,6 +252,14 @@ h1 {
   color: red;
 }
 
+.ErrorPage {
+  font-size: 3.2rem;
+  text-align: center;
+  color: red;
+
+  padding: 2.4rem;
+}
+
 .CommentCard-date {
   grid-column: 3;
   grid-row: 3;
