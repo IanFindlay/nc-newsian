@@ -8,6 +8,12 @@ ul {
   padding: 0;
 }
 
+button,
+select,
+option {
+  cursor: pointer;
+}
+
 .App {
   font-size: 16px;
   text-align: center;
@@ -308,6 +314,7 @@ h1 {
 }
 
 .OrderToggle-radio-asc {
+  cursor: pointer;
   grid-column: 2;
 }
 
@@ -316,6 +323,7 @@ h1 {
 }
 
 .OrderToggle-radio-desc {
+  cursor: pointer;
   grid-column: 4;
 }
 
