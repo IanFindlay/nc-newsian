@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 import TopicDropdown from "./TopicDropdown";
 
-export default function Navigation({ setPageNumber }) {
+export default function Navigation({ searchParams }) {
   return (
     <nav className="Navigation">
       <Link to="/">Home</Link>
-      <TopicDropdown setPageNumber={setPageNumber} />
+      <TopicDropdown searchParams={searchParams} />
     </nav>
   );
 }

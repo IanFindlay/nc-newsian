@@ -1,4 +1,7 @@
-export default function SortByDropdown({ sortBy, setSortBy, setPageNumber }) {
+export default function SortByDropdown({ searchParams, setSearchParams }) {
+  const sortBy = searchParams.get("sort_by");
+  const order = searchParams.get("order");
+
   return (
     <div className="SortByDropdown">
       <label htmlFor="sortBy" className="sort-label">
@@ -9,14 +12,17 @@ export default function SortByDropdown({ sortBy, setSortBy, setPageNumber }) {
         defaultValue={sortBy}
         name="sortBy"
         onChange={(e) => {
-          setSortBy(e.target.value);
-          setPageNumber(1);
+          setSearchParams({
+            order,
+            sort_by: e.target.value,
+            p: 1,
+          });
         }}
       >
         <option key="author" value="author">
           author
         </option>
-        <option key="comments" value="comment_count">
+        <option key="comments" value="comments">
           comments
         </option>
         <option key="date" value="date">

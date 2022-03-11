@@ -1,10 +1,12 @@
-export default function OrderToggle({ order, setOrder, setPageNumber }) {
+export default function OrderToggle({ searchParams, setSearchParams }) {
+  const sortBy = searchParams.get("sort_by");
+  const order = searchParams.get("order");
+
   return (
     <form
       className="OrderToggle"
       onChange={(e) => {
-        setOrder(e.target.value);
-        setPageNumber(1);
+        setSearchParams({ sort_by: sortBy, order: e.target.value, p: 1 });
       }}
     >
       <label htmlFor="order-asc" className="OrderToggle-label-asc">

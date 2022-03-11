@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as api from "../utils/api";
 
-export default function TopicDropdown({ setPageNumber }) {
+export default function TopicDropdown({ searchParams }) {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
   const navigate = useNavigate();
+  const sortBy = searchParams.get("sort_by");
+  const order = searchParams.get("order");
 
   useEffect(() => {
     setIsLoading(true);
@@ -22,8 +24,7 @@ export default function TopicDropdown({ setPageNumber }) {
         value={`/topics/${topic}`}
         disabled={isLoading}
         onChange={(e) => {
-          setPageNumber(1);
-          navigate(e.target.value);
+          navigate(e.target.value + `?sort_by=${sortBy}&order=${order}&p=1`);
         }}
       >
         <option value={"/articles"}>all</option>

@@ -3,9 +3,9 @@ import { useState } from "react";
 
 import "./App.css";
 import Article from "./components/Article";
+import ArticleList from "./components/ArticleList";
 import Title from "./components/Title";
 import UserContext from "./contexts/UserContext";
-import QueryBar from "./components/QueryBar";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState("jessjelly");
@@ -17,8 +17,8 @@ function App() {
             <Title />
           </header>
           <Routes>
-            <Route path="/articles" element={<QueryBar />} />
-            <Route path="/topics/:topic" element={<QueryBar />} />
+            <Route path="/articles" element={<ArticleList />} />
+            <Route path="/topics/:topic" element={<ArticleList />} />
             <Route path="/articles/:articleId" element={<Article />} />
           </Routes>
         </main>

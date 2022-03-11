@@ -1,29 +1,31 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import * as api from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import Navigation from "./Navigation";
+import QueryBar from "./QueryBar";
 
-export default function ArticleList({
-  sortBy,
-  order,
-  pageNumber,
-  setPageNumber,
-}) {
+export default function ArticleList({ setPageNumber }) {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [maxPage, setMaxPage] = useState(0);
   const { topic } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortBy = searchParams.get("sort_by");
+  const order = searchParams.get("order");
+  const pageNumber = Number(searchParams.get("p"));
 
   const incrementPage = (amount) => {
-    setPageNumber((currentPage) => currentPage + amount);
+    setSearchParams({ sort_by: sortBy, order, p: pageNumber + amount });
   };
 
   useEffect(() => {
     setIsLoading(true);
+    const apiSort = sortBy === "comments" ? "comment_count" : sortBy;
     api
-      .getArticles(pageNumber, topic, sortBy, order)
+      .getArticles(pageNumber, topic, apiSort, order)
       .then(({ articles, total_count: totalCount }) => {
         setArticles(articles);
         setIsLoading(false);
@@ -36,7 +38,7 @@ export default function ArticleList({
         }
         setIsLoading(false);
       });
-  }, [pageNumber, topic, sortBy, order]);
+  }, [searchParams, topic]);
 
   const topicTitle = topic
     ? `${topic[0].toUpperCase() + topic.slice(1)} Articles`
@@ -46,7 +48,9 @@ export default function ArticleList({
   if (isLoading) return <h3>Retrieving articles...</h3>;
 
   return (
-    <div>
+    <>
+      <Navigation searchParams={searchParams} />
+      <QueryBar searchParams={searchParams} setSearchParams={setSearchParams} />
       <h2>{topicTitle}</h2>
       <ul className="ArticleList">
         {articles.map((article) => {
@@ -71,6 +75,6 @@ export default function ArticleList({
           Next
         </button>
       </div>
-    </div>
+    </>
   );
 }
