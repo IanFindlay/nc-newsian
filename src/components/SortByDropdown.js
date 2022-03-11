@@ -1,4 +1,4 @@
-export default function SortByDropdown({ sortBy, setSortBy }) {
+export default function SortByDropdown({ sortBy, setSortBy, setPageNumber }) {
   return (
     <div className="SortByDropdown">
       <label htmlFor="sortBy" className="sort-label">
@@ -10,6 +10,7 @@ export default function SortByDropdown({ sortBy, setSortBy }) {
         name="sortBy"
         onChange={(e) => {
           setSortBy(e.target.value);
+          setPageNumber(1);
         }}
       >
         <option key="author" value="author">

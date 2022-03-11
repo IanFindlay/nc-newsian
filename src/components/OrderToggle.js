@@ -1,6 +1,12 @@
-export default function OrderToggle({ order, setOrder }) {
+export default function OrderToggle({ order, setOrder, setPageNumber }) {
   return (
-    <form className="OrderToggle" onChange={(e) => setOrder(e.target.value)}>
+    <form
+      className="OrderToggle"
+      onChange={(e) => {
+        setOrder(e.target.value);
+        setPageNumber(1);
+      }}
+    >
       <label htmlFor="order-asc" className="OrderToggle-label-asc">
         asc
       </label>

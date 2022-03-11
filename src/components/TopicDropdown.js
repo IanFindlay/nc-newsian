@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as api from "../utils/api";
 
-export default function TopicDropdown() {
+export default function TopicDropdown({ setPageNumber }) {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
@@ -22,6 +22,7 @@ export default function TopicDropdown() {
         value={`/topics/${topic}`}
         disabled={isLoading}
         onChange={(e) => {
+          setPageNumber(1);
           navigate(e.target.value);
         }}
       >

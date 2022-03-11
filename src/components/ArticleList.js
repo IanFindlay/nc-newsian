@@ -3,18 +3,18 @@ import { useParams } from "react-router-dom";
 
 import * as api from "../utils/api";
 import ArticleCard from "./ArticleCard";
-import QueryBar from "./QueryBar";
-import Navigation from "./Navigation";
 
-export default function ArticleList() {
+export default function ArticleList({
+  sortBy,
+  order,
+  pageNumber,
+  setPageNumber,
+}) {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [pageNumber, setPageNumber] = useState(1);
   const [maxPage, setMaxPage] = useState(0);
   const { topic } = useParams();
-  const [sortBy, setSortBy] = useState("date");
-  const [order, setOrder] = useState("desc");
 
   const incrementPage = (amount) => {
     setPageNumber((currentPage) => currentPage + amount);
@@ -38,10 +38,6 @@ export default function ArticleList() {
       });
   }, [pageNumber, topic, sortBy, order]);
 
-  useEffect(() => {
-    setPageNumber(1);
-  }, [topic]);
-
   const topicTitle = topic
     ? `${topic[0].toUpperCase() + topic.slice(1)} Articles`
     : "All Articles";
@@ -51,13 +47,6 @@ export default function ArticleList() {
 
   return (
     <div>
-      <Navigation />
-      <QueryBar
-        sortBy={sortBy}
-        setSortBy={setSortBy}
-        order={order}
-        setOrder={setOrder}
-      />
       <h2>{topicTitle}</h2>
       <ul className="ArticleList">
         {articles.map((article) => {
