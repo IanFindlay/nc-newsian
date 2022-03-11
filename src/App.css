@@ -48,6 +48,7 @@ h1 {
 
 .ArticleCard {
   border: 1px solid black;
+  border-radius: 5px;
   padding: 0.4rem 0.8rem;
   margin-bottom: 1.6rem;
 }
@@ -90,10 +91,7 @@ h1 {
 
   margin: 1.2rem;
   border: 2px solid darkgray;
-  border-radius: 1%;
-  outline-style: ridge;
-  outline-color: gray;
-  outline-width: 1px;
+  border-radius: 5px;
   padding: 0.6rem 0.6rem 0.6rem 1.8rem;
 }
 
