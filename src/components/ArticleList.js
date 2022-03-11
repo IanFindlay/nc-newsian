@@ -3,6 +3,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 
 import * as api from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import ErrorPage from "./ErrorPage";
 import Navigation from "./Navigation";
 import QueryBar from "./QueryBar";
 
@@ -34,7 +35,7 @@ export default function ArticleList({ setPageNumber }) {
         setError(null);
       })
       .catch((err) => {
-        setError("Unable to retrieve articles, please try again later");
+        setError(err.response);
         setIsLoading(false);
       });
   }, [pageNumber, topic, sortBy, order, limit]);
@@ -43,7 +44,7 @@ export default function ArticleList({ setPageNumber }) {
     ? `${topic[0].toUpperCase() + topic.slice(1)} Articles`
     : "All Articles";
 
-  if (error) return <h3 className="error-message">{error}</h3>;
+  if (error) return <ErrorPage status={error.status} msg={error.data.msg} />;
   if (isLoading) return <h3>Retrieving articles...</h3>;
 
   return (
