@@ -4,12 +4,7 @@ import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
 import PostComment from "./PostComment";
 
-export default function Comments({
-  articleId,
-  commentCount,
-  userCommentCount,
-  setUserCommentCount,
-}) {
+export default function Comments({ articleId, setUserCommentCount }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

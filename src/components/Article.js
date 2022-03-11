@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import * as api from "../utils/api";
 import CollapseWrapper from "./CollapseWrapper";
 import Comments from "./Comments";
+import ErrorPage from "./ErrorPage";
 
 export default function Article() {
   const { articleId } = useParams();
@@ -12,28 +13,37 @@ export default function Article() {
   const [voteCount, setVoteCount] = useState(0);
   const [userCommentCount, setUserCommentCount] = useState(0);
   const [error, setError] = useState(null);
+  const [inlineError, setInlineError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
-    api.getArticleById(articleId).then((article) => {
-      setContent(article);
-      setIsLoading(false);
-    });
+    setError(null);
+    api
+      .getArticleById(articleId)
+      .then((article) => {
+        setContent(article);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response);
+        setIsLoading(false);
+      });
   }, [articleId]);
 
   const voteOnArticle = (amount) => {
     setVoteCount((current) => {
       return current + amount;
     });
-    setError(null);
+    setInlineError(null);
     api.patchArticleVotes(articleId, amount).catch(() => {
       setVoteCount((current) => current - amount);
-      setError("Vote failed");
+      setInlineError("Vote failed");
     });
   };
 
   if (isLoading) return <h3>Retrieving article...</h3>;
+  if (error) return <ErrorPage status={error.status} msg={error.data.msg} />;
 
   return (
     <article className="Article">
@@ -85,7 +95,7 @@ export default function Article() {
             &#9660;
           </button>
         </div>
-        <p className="Article-error">{error}</p>
+        {inlineError && <p className="error-message">{inlineError}</p>}
       </section>
       <button
         className="Article-button Article-button-bottom"
