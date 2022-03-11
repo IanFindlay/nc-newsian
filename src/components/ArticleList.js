@@ -7,17 +7,19 @@ import ErrorPage from "./ErrorPage";
 import Navigation from "./Navigation";
 import QueryBar from "./QueryBar";
 
-export default function ArticleList({ setPageNumber }) {
+export default function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [maxPage, setMaxPage] = useState(1);
   const { topic } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
-  const sortBy = searchParams.get("sort_by");
-  const order = searchParams.get("order");
-  const limit = Number(searchParams.get("limit"));
-  const pageNumber = Number(searchParams.get("p"));
+  const sortBy = searchParams.get("sort_by") || "date";
+  const order = searchParams.get("order") || "asc";
+  const limit = searchParams.get("limit")
+    ? Number(searchParams.get("limit"))
+    : 10;
+  const pageNumber = Number(searchParams.get("p")) || 1;
 
   const incrementPage = (amount) => {
     setSearchParams({ sort_by: sortBy, order, limit, p: pageNumber + amount });
@@ -25,6 +27,7 @@ export default function ArticleList({ setPageNumber }) {
 
   useEffect(() => {
     setIsLoading(true);
+    setSearchParams({ sort_by: sortBy, order, limit, p: pageNumber });
     const apiSort = sortBy === "comments" ? "comment_count" : sortBy;
     api
       .getArticles(pageNumber, topic, apiSort, order, limit)
@@ -38,7 +41,7 @@ export default function ArticleList({ setPageNumber }) {
         setError(err.response);
         setIsLoading(false);
       });
-  }, [pageNumber, topic, sortBy, order, limit]);
+  }, [pageNumber, topic, sortBy, order, limit, setSearchParams]);
 
   const topicTitle = topic
     ? `${topic[0].toUpperCase() + topic.slice(1)} Articles`

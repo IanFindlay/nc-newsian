@@ -55,10 +55,7 @@ export default function Article() {
       >
         back
       </button>
-      <Link
-        to={`/topics/${content.topic}?sort_by=date&order=asc&limit=10&p=1`}
-        className="Article-topic"
-      >
+      <Link to={`/topics/${content.topic}`} className="Article-topic">
         {content.topic.toUpperCase()}
       </Link>
       <p className="Article-date">{content.created_at.slice(0, 10)}</p>

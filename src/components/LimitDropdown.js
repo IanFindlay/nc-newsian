@@ -14,8 +14,8 @@ export default function LimitDropdown({ searchParams, setSearchParams }) {
         name="limit"
         onChange={(e) => {
           setSearchParams({
-            order,
             sort_by: sortBy,
+            order,
             limit: e.target.value,
             p: 1,
           });

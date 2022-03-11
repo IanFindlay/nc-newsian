@@ -8,6 +8,12 @@ ul {
   padding: 0;
 }
 
+button,
+select,
+option {
+  cursor: pointer;
+}
+
 .App {
   font-size: 16px;
   text-align: center;
@@ -48,6 +54,7 @@ h1 {
 
 .ArticleCard {
   border: 1px solid black;
+  border-radius: 5px;
   padding: 0.4rem 0.8rem;
   margin-bottom: 1.6rem;
 }
@@ -90,10 +97,7 @@ h1 {
 
   margin: 1.2rem;
   border: 2px solid darkgray;
-  border-radius: 1%;
-  outline-style: ridge;
-  outline-color: gray;
-  outline-width: 1px;
+  border-radius: 5px;
   padding: 0.6rem 0.6rem 0.6rem 1.8rem;
 }
 
@@ -310,6 +314,7 @@ h1 {
 }
 
 .OrderToggle-radio-asc {
+  cursor: pointer;
   grid-column: 2;
 }
 
@@ -318,6 +323,7 @@ h1 {
 }
 
 .OrderToggle-radio-desc {
+  cursor: pointer;
   grid-column: 4;
 }
 
@@ -339,4 +345,9 @@ h1 {
 .limit-select {
   grid-column: 2;
   grid-row: 1;
+}
+
+.ErrorPage-back {
+  margin-top: 2.4rem;
+  font-size: 2.4rem;
 }
