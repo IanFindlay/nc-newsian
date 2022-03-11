@@ -9,6 +9,7 @@ export default function TopicDropdown({ searchParams }) {
   const navigate = useNavigate();
   const sortBy = searchParams.get("sort_by");
   const order = searchParams.get("order");
+  const limit = searchParams.get("limit");
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,7 +25,10 @@ export default function TopicDropdown({ searchParams }) {
         value={`/topics/${topic}`}
         disabled={isLoading}
         onChange={(e) => {
-          navigate(e.target.value + `?sort_by=${sortBy}&order=${order}&p=1`);
+          navigate(
+            e.target.value +
+              `?sort_by=${sortBy}&order=${order}&limit=${limit}&p=1`
+          );
         }}
       >
         <option value={"/articles"}>all</option>

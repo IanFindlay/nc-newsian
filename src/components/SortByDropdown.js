@@ -1,6 +1,7 @@
 export default function SortByDropdown({ searchParams, setSearchParams }) {
   const sortBy = searchParams.get("sort_by");
   const order = searchParams.get("order");
+  const limit = searchParams.get("limit");
 
   return (
     <div className="SortByDropdown">
@@ -15,6 +16,7 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
           setSearchParams({
             order,
             sort_by: e.target.value,
+            limit,
             p: 1,
           });
         }}
