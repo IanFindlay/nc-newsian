@@ -14,8 +14,8 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
         name="sortBy"
         onChange={(e) => {
           setSearchParams({
-            order,
             sort_by: e.target.value,
+            order,
             limit,
             p: 1,
           });
