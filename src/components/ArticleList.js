@@ -34,9 +34,7 @@ export default function ArticleList({ setPageNumber }) {
         setError(null);
       })
       .catch((err) => {
-        if (err.response.status !== 404) {
-          setError("Unable to retrieve articles, please try again later");
-        }
+        setError("Unable to retrieve articles, please try again later");
         setIsLoading(false);
       });
   }, [pageNumber, topic, sortBy, order, limit]);
