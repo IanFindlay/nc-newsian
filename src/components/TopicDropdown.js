@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as api from "../utils/api";
 
-export default function TopicDropdown() {
+export default function TopicDropdown({ searchParams }) {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isDefaultDisabled, setIsDefaultDisabled] = useState(false);
+  const { topic } = useParams();
   const navigate = useNavigate();
+  const sortBy = searchParams.get("sort_by");
+  const order = searchParams.get("order");
+  const limit = searchParams.get("limit");
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,20 +22,20 @@ export default function TopicDropdown() {
   return (
     <section>
       <select
+        value={`/topics/${topic}`}
         disabled={isLoading}
         onChange={(e) => {
-          navigate(e.target.value);
-          setIsDefaultDisabled(true);
+          navigate(
+            e.target.value +
+              `?sort_by=${sortBy}&order=${order}&limit=${limit}&p=1`
+          );
         }}
       >
-        <option value="" disabled={isDefaultDisabled}>
-          select topic
-        </option>
         <option value={"/articles"}>all</option>
-        {topics.map((topic) => {
+        {topics.map(({ slug }) => {
           return (
-            <option key={topic.slug} value={`/topics/${topic.slug}`}>
-              {topic.slug}
+            <option key={slug} value={`/topics/${slug}`}>
+              {slug}
             </option>
           );
         })}
