@@ -346,3 +346,8 @@ h1 {
   grid-column: 2;
   grid-row: 1;
 }
+
+.ErrorPage-back {
+  margin-top: 2.4rem;
+  font-size: 2.4rem;
+}
