@@ -48,12 +48,12 @@ export default function ArticleList() {
     : "All Articles";
 
   if (error) return <ErrorPage status={error.status} msg={error.data.msg} />;
-  if (isLoading) return <h3>Retrieving articles...</h3>;
 
   return (
     <>
       <Navigation searchParams={searchParams} />
       <QueryBar searchParams={searchParams} setSearchParams={setSearchParams} />
+      {isLoading && <h3>Retrieving articles...</h3>}
       <h2>{topicTitle}</h2>
       <ul className="ArticleList">
         {articles.map((article) => {
