@@ -51,8 +51,8 @@ export default function ArticleList() {
 
   return (
     <>
-      <Navigation searchParams={searchParams} />
-      <QueryBar searchParams={searchParams} setSearchParams={setSearchParams} />
+      <Navigation />
+      <QueryBar />
       {isLoading && <h3>Retrieving articles...</h3>}
       <h2>{topicTitle}</h2>
       <ul className="ArticleList">
