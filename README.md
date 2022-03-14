@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# NC-Newsian - A Northcoders' Bootcamp Front-End Portfolio Piece
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Summary
 
-## Available Scripts
+As part of the Northcoders' Bootcamp I created [this back-end project](https://github.com/IanFindlay/nc-news) - a restful API that uses a postgreSQL database of generated
+news data. NC-Newsian is the front-end to this project. Built using the React framework and styled with custom CSS, it serves as an illustration of how I would implement and design a site used to deliver written content in an appealing, user-focused and performant way. It was built using the mobile-first design paradigm with user stories driving the features and accessibility considerations made throughout. Some of the aspect I wish to highlight are:
 
-In the project directory, you can run:
+- The ability to filter articles by topic, sort and order them in various ways and decide upon how many articles to display per page
+- The above can be directly manipulated via the URL which dynamically updates to represent any non-default search parameters
+- The ability to read an article and return to the page you came from with the search parameters you set still in place
+- The ability to post a comment, delete one of your comments and further interact with the content via up/down votes
 
-### `npm start`
+## View a live version of the application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You can view these, and other, features for yourself by visiting this [deployment of the app via Netlify]().
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Run a local version
 
-### `npm test`
+### Requirements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Whilst earlier versions than those below may still work they have not been tested. This application was developed using:
 
-### `npm run build`
+- Node version 17
+- npm version 8
+- react version 17
+- react-router-dom version 6
+- axios version 0.26
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Cloning the repository and installing the modules
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can clone this repository via one of the three links shown in the 'Code' button dropdown near the top of this page - I'll show the HTTPS option as an example:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+git clone https://github.com/IanFindlay/nc-news.git
+```
 
-### `npm run eject`
+Once cloned, navigate to the directory in you terminal and run the following command to install all of the applications dependencies - a list of which can be found in the package.json file:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm i
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In order to view the application locally in your browser, run the following command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This should automatically open a window in your default browser to the NC-Newsian homepage. If for some reason this does not happen navigate to http://localhost/3000 and explore it from there. Please note, whilst the app is running locally it is still making calls to a publicly available, Heroku-hosted API.
 
-## Learn More
+## TODO Notes on the limitations of this example app
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Need to finalise design decisions before writing this section
