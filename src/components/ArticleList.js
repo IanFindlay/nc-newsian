@@ -15,7 +15,7 @@ export default function ArticleList() {
   const { topic } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get("sort_by") || "date";
-  const order = searchParams.get("order") || "asc";
+  const order = searchParams.get("order") || "desc";
   const limit = searchParams.get("limit")
     ? Number(searchParams.get("limit"))
     : 10;
