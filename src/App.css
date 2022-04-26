@@ -37,6 +37,21 @@ h1 {
   margin: 0 0.6rem;
 }
 
+.HomePage-subtitle {
+  font-size: 1.2rem;
+  margin: 1.6rem;
+}
+
+.HomePage-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.HomePage-buttons > button {
+  font-size: 1rem;
+  padding: 0.4rem;
+}
+
 .Navigation {
   display: flex;
   justify-content: space-evenly;

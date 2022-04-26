@@ -41,3 +41,9 @@ export function postComment(articleId, username, body) {
 export function deleteComment(commentId) {
   return newsianApi.delete(`comments/${commentId}`);
 }
+
+export function getRandomArticle() {
+  return newsianApi
+    .get("articles/random")
+    .then(({ data: { article } }) => article);
+}
