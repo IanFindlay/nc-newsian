@@ -1,7 +1,12 @@
-export default function OrderToggle({ searchParams, setSearchParams }) {
-  const sortBy = searchParams.get("sort_by");
-  const order = searchParams.get("order");
-  const limit = searchParams.get("limit");
+import { useSearchParams } from "react-router-dom";
+
+export default function OrderToggle() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const {
+    sort_by: sortBy,
+    order,
+    limit,
+  } = Object.fromEntries([...searchParams]);
 
   return (
     <form

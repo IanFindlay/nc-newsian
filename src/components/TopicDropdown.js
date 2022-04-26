@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import * as api from "../utils/api";
 
-export default function TopicDropdown({ searchParams }) {
+export default function TopicDropdown() {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
   const navigate = useNavigate();
-  const sortBy = searchParams.get("sort_by");
-  const order = searchParams.get("order");
-  const limit = searchParams.get("limit");
+  const [searchParams] = useSearchParams();
+  const {
+    sort_by: sortBy,
+    order,
+    limit,
+  } = Object.fromEntries([...searchParams]);
 
   useEffect(() => {
     setIsLoading(true);
