@@ -247,6 +247,32 @@ h1 {
 .CommentCard-button-delete {
   grid-column: 3;
   grid-row: 1;
+  font-size: 1.1rem;
+}
+
+.CommentCard-voting {
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: start;
+
+  font-size: 1rem;
+  display: flex;
+}
+
+.CommentCard-button {
+  font-weight: bold;
+  background-color: inherit;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.CommentCard-minus {
+  margin-right: 0.4rem;
+}
+
+.CommentCard-plus {
+  margin-left: 0.4rem;
 }
 
 .info-message {
