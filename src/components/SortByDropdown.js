@@ -15,7 +15,7 @@ export default function SortByDropdown() {
       </label>
       <select
         className="sort-select"
-        defaultValue={sortBy}
+        defaultValue={sortBy || "date"}
         name="sortBy"
         onChange={(e) => {
           setSearchParams({
