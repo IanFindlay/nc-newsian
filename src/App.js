@@ -1,11 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 
 import "./App.css";
 import Article from "./components/Article";
 import ArticleList from "./components/ArticleList";
 import ErrorPage from "./components/ErrorPage";
-import HomePage from "./components/HomePage";
 import Title from "./components/Title";
 import UserContext from "./contexts/UserContext";
 
@@ -19,7 +18,7 @@ function App() {
             <Title />
           </header>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Navigate to="/articles" />} />
             <Route path="/articles" element={<ArticleList />} />
             <Route path="/topics/:topic" element={<ArticleList />} />
             <Route path="/articles/:articleId" element={<Article />} />
