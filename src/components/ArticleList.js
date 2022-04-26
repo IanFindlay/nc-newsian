@@ -22,6 +22,7 @@ export default function ArticleList() {
   const pageNumber = Number(searchParams.get("p")) || 1;
 
   const incrementPage = (amount) => {
+    window.scrollTo(0, 0);
     setSearchParams({ sort_by: sortBy, order, limit, p: pageNumber + amount });
   };
 
