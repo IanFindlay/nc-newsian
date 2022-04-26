@@ -42,6 +42,10 @@ export function deleteComment(commentId) {
   return newsianApi.delete(`comments/${commentId}`);
 }
 
+export function patchCommentVotes(commentId, amount) {
+  return newsianApi.patch(`/comments/${commentId}`, { inc_votes: amount });
+}
+
 export function getRandomArticle() {
   return newsianApi
     .get("articles/random")

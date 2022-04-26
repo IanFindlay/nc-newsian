@@ -7,7 +7,20 @@ export default function CommentCard({ comment, setUserCommentCount }) {
   const { loggedInUser } = useContext(UserContext);
   const [isDeleted, setIsDeleted] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [voteCount, setVoteCount] = useState(0);
   const [error, setError] = useState(null);
+  const [inlineError, setInlineError] = useState(null);
+
+  const voteOnComment = (amount) => {
+    setVoteCount((current) => {
+      return current + amount;
+    });
+    setInlineError(null);
+    api.patchCommentVotes(comment.comment_id, amount).catch(() => {
+      setVoteCount((current) => current - amount);
+      setInlineError("Vote failed");
+    });
+  };
 
   const deleteComment = () => {
     setIsDeleting(true);
@@ -28,10 +41,10 @@ export default function CommentCard({ comment, setUserCommentCount }) {
   const deleteButton = (
     <button
       disabled={isDeleting}
-      className="CommentCard-button-delete"
+      className="CommentCard-button CommentCard-button-delete"
       onClick={deleteComment}
     >
-      delete
+      🗑
     </button>
   );
 
@@ -45,6 +58,28 @@ export default function CommentCard({ comment, setUserCommentCount }) {
         {loggedInUser === comment.author && deleteButton}
         <p className="CommentCard-date">{comment.created_at.slice(0, 10)}</p>
         <p className="CommentCard-body">{comment.body}</p>
+        <section className="CommentCard-voting">
+          <button
+            className="CommentCard-button CommentCard-minus"
+            onClick={() => {
+              voteOnComment(-1);
+            }}
+            disabled={voteCount === -1 || comment.author === loggedInUser}
+          >
+            -
+          </button>
+          <p>{comment.votes + voteCount}</p>
+          <button
+            className="CommentCard-button CommentCard-plus"
+            onClick={() => {
+              voteOnComment(1);
+            }}
+            disabled={voteCount === 1 || comment.author === loggedInUser}
+          >
+            +
+          </button>
+          {inlineError && <p className="error-message">{inlineError}</p>}
+        </section>
       </li>
       {isDeleting && <h3 className="info-message">Deleting message</h3>}
       {error && <h3 className="error-message">{error}</h3>}
