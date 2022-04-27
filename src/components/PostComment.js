@@ -27,7 +27,7 @@ export default function PostComment({
         setUserCommentCount((current) => current + 1);
         setComments((current) => {
           const newComments = [...current];
-          newComments.push(comment);
+          newComments.unshift(comment);
           return newComments;
         });
         setSuccess("Comment successfully posted");
