@@ -46,8 +46,8 @@ export function patchCommentVotes(commentId, amount) {
   return newsianApi.patch(`/comments/${commentId}`, { inc_votes: amount });
 }
 
-export function getRandomArticle() {
+export function getRandomArticleId() {
   return newsianApi
     .get("articles/random")
-    .then(({ data: { article } }) => article);
+    .then(({ data: { article } }) => article.article_id);
 }
