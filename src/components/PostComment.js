@@ -41,7 +41,7 @@ export default function PostComment({
 
   return (
     <>
-      <form onSubmit={postComment}>
+      <form className="PostComment" onSubmit={postComment}>
         <label htmlFor="commentInput">Add to the conversation</label>
         <textarea
           className="Comments-new-input"

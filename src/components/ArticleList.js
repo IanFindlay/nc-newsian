@@ -67,7 +67,7 @@ export default function ArticleList() {
           );
         })}
       </ul>
-      <div className="article-list-pagination">
+      <div className="ArticleList-pagination">
         <button onClick={() => incrementPage(-1)} disabled={pageNumber === 1}>
           Prev
         </button>

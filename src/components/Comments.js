@@ -39,7 +39,7 @@ export default function Comments({ articleId, setUserCommentCount }) {
         setComments={setComments}
         setUserCommentCount={setUserCommentCount}
       />
-      <ul>
+      <ul className="Comments-list">
         {comments.map((comment) => (
           <CommentCard
             key={comment.created_at}
