@@ -24,7 +24,11 @@ export default function TopicDropdown() {
 
   return (
     <section>
+      <label htmlFor="topics" className="TopicDropdown-label">
+        Topic
+      </label>
       <select
+        id="topic"
         value={`/topics/${topic}`}
         disabled={isLoading}
         onChange={(e) => {

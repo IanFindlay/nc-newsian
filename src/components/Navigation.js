@@ -24,13 +24,12 @@ export default function Navigation() {
   };
   return (
     <nav className="Navigation">
-      <Link to="/">Home</Link>
       <TopicDropdown />
-      <button onClick={openRandom}>
+      <button className="Navigation-button-random" onClick={openRandom}>
         {isLoading ? "Loading..." : "Random"}
       </button>
       {inlineError && inlineError}
-      {}
+      <Link to="/">Reset</Link>
     </nav>
   );
 }
