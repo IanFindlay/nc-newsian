@@ -29,7 +29,9 @@ export default function Navigation() {
         {isLoading ? "Loading..." : "Random"}
       </button>
       {inlineError && inlineError}
-      <Link to="/">Reset</Link>
+      <Link className="Navigation-link" to="/">
+        Reset
+      </Link>
     </nav>
   );
 }
