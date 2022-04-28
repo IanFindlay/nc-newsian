@@ -301,6 +301,7 @@ h1 {
   min-height: 8rem;
   width: 93%;
   max-width: 600px;
+  font-size: 1rem;
 }
 
 .Comments-new-button {
