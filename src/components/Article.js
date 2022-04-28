@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 
 import * as api from "../utils/api";
 import CollapseWrapper from "./CollapseWrapper";
 import Comments from "./Comments";
 import ErrorPage from "./ErrorPage";
+import UserContext from "../contexts/UserContext";
 
 export default function Article() {
+  const { loggedInUser } = useContext(UserContext);
   const { articleId } = useParams();
   const [content, setContent] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -80,7 +82,7 @@ export default function Article() {
             onClick={() => {
               voteOnArticle(1);
             }}
-            disabled={voteCount === 1}
+            disabled={voteCount === 1 || loggedInUser === content.author}
           >
             &#9650;
           </button>
@@ -90,7 +92,7 @@ export default function Article() {
             onClick={() => {
               voteOnArticle(-1);
             }}
-            disabled={voteCount === -1}
+            disabled={voteCount === -1 || loggedInUser === content.author}
           >
             &#9660;
           </button>
