@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import * as api from "../utils/api";
 import TopicDropdown from "./TopicDropdown";
@@ -26,12 +26,9 @@ export default function Navigation() {
     <nav className="Navigation">
       <TopicDropdown />
       <button className="Navigation-button-random" onClick={openRandom}>
-        {isLoading ? "Loading..." : "Random"}
+        {isLoading ? "Loading..." : "Random Article"}
       </button>
       {inlineError && inlineError}
-      <Link className="Navigation-link" to="/">
-        Reset
-      </Link>
     </nav>
   );
 }

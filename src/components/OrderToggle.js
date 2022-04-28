@@ -24,7 +24,7 @@ export default function OrderToggle() {
         asc
       </label>
       <input
-        name="order"
+        id="order-asc"
         className="OrderToggle-radio-asc"
         type="radio"
         value="asc"
@@ -35,7 +35,7 @@ export default function OrderToggle() {
         desc
       </label>
       <input
-        name="order"
+        id="order-desc"
         className="OrderToggle-radio-desc"
         type="radio"
         value="desc"

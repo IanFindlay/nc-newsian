@@ -6,6 +6,16 @@
   color: #e5e9f0;
 }
 
+#root {
+ font-size: 18px;
+}
+
+@media screen and (min-width: 700px) {
+  #root {
+  font-size: 22px;
+  }
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -18,69 +28,69 @@ option {
 }
 
 .App {
-  font-size: 16px;
   text-align: center;
 }
 
 @media screen and (min-width: 960px) {
   .App {
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 3.6rem;
   margin: 1.8rem 0.6rem 0 0.6rem;
 }
 
+.Title {
+  margin-bottom: 2.4rem;
+}
+
 .logged-user {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-style: italic;
   margin: 0.6rem 1.2rem 1.2rem 0;
   text-align: right;
 }
 
-.Navigation-button-random {
-  padding: 0.2rem;
-  color: #88c0d0;
-}
-
-.Navigation-link {
-  color: #88c0d0;
-}
-
-.HomePage-subtitle {
-  font-size: 1.2rem;
-  margin: 1.6rem;
-}
-
-.HomePage-buttons {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.HomePage-buttons > button {
-  font-size: 1rem;
-  padding: 0.4rem;
+@media screen and (min-width: 960px) {
+  .logged-user {
+    font-size: 1.6rem;
+  }
 }
 
 .Navigation {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
-  margin: 1rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.Navigation-button-random {
+  padding: 0.4rem;
+  font-size: 1rem;
 }
 
 .TopicDropdown-label {
  margin-right: 0.6rem;
 }
 
-.OrderToggle {
-  accent-color: #88c0d0;
+.ArticleList {
+  margin-top: 0.8rem;
+  padding: 0.8rem;
 }
 
-.ArticleList {
-  padding: 0.8rem;
+@media screen and (min-width: 700px) {
+  .ArticleList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 1.2rem;
+  margin-bottom: 1.6rem;
+  }
 }
 
 .Link {
@@ -93,6 +103,12 @@ h1 {
   border-radius: 5px;
   padding: 0.4rem 0.8rem;
   margin-bottom: 1.6rem;
+}
+
+@media screen and (min-width: 700px) {
+  .ArticleCard {
+    width: 300px;
+  }
 }
 
 .article-card-date {
@@ -118,25 +134,35 @@ h1 {
   margin-top: 1.2rem;
 }
 
-.article-list-pagination {
+.ArticleList-pagination {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 1rem;
   margin-top: -1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 2.4rem;
 }
 
-.article-list-pagination > button {
+.ArticleList-pagination > button {
   padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.ArticleList-pagination > button:disabled {
+  visibility: hidden;
+}
+
+.ArticleList-pagination > p {
+  font-size: 1.4rem;
 }
 
 .Article {
   display: grid;
   grid-template-columns: max-content 2fr max-content max-content;
   grid-template-rows: max-content max-content 1.6rem max-content 2fr max-content;
-
   margin: 1.2rem;
-  border: 2px solid darkgray;
+  border: 2px solid #e5e9f0;
   border-radius: 5px;
   padding: 0.6rem 0.6rem 0.6rem 1.8rem;
 }
@@ -146,6 +172,7 @@ h1 {
   border: none;
   font-weight: bold;
   cursor: pointer;
+  font-size: 1rem;
 }
 .Article-button-top {
   grid-column: -1;
@@ -163,11 +190,16 @@ h1 {
   grid-column: 2;
   grid-row: 2;
   justify-self: start;
-
   font-weight: bold;
+  font-size: 1rem;
   color: #88c0d0;
-  font-size: 0.9rem;
   border-bottom: 1px solid #8fbcbb;
+}
+
+@media screen and (min-width: 960px) {
+  .Article-topic {
+    font-size: 1.2rem;
+  }
 }
 
 .Article-date {
@@ -202,6 +234,7 @@ h1 {
 
   text-align: left;
   font-size: 1.2rem;
+  line-height: 1.6rem;
   margin-top: 0.2rem;
   margin-bottom: 1rem;
 }
@@ -230,12 +263,29 @@ h1 {
 }
 
 .Article-comments > button {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding: 0.4rem;
+}
+
+@media screen and (min-width: 700px) {
+  .Article-comments > button {
+    font-size: 1rem;
+  }
+}
+
+.PostComment {
+  display: grid;
+  align-items: center;
+  justify-items: start;
+}
+
+.PostComment > button {
+  font-size: 0.8rem;
 }
 
 .Comments {
   text-align: left;
+  font-size: 1.2rem;
   margin-top: 4rem;
   padding-top: 0.8rem;
   border-top: 1px solid #e5e9f0;
@@ -247,14 +297,17 @@ h1 {
 
 .Comments-new-input {
   padding: 1rem;
-  width: 14rem;
-  min-height: 5rem;
   margin: 0.6rem 0;
+  min-height: 8rem;
+  width: 93%;
+  max-width: 600px;
+  font-size: 1rem;
 }
 
 .Comments-new-button {
   margin-bottom: 1.2rem;
   padding: 0.4rem;
+  width: 8rem;
 }
 
 .CommentCard {
@@ -263,6 +316,8 @@ h1 {
   grid-template-rows: repeat(3, max-content);
   row-gap: 0.8rem;
   padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  max-width: 1000px;
 }
 
 .CommentCard-author {
@@ -270,9 +325,17 @@ h1 {
   grid-row: 1;
   font-size: 1rem;
   font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .CommentCard-author {
+    font-size: 1.4rem;
+  }
 }
 
 .CommentCard-button {
+  font-size: 1.2rem;
   font-weight: bold;
   background-color: inherit;
   border: none;
@@ -285,7 +348,9 @@ h1 {
   color: #bf616a;
   grid-column: 3;
   grid-row: 1;
-  font-size: 1.1rem;
+  justify-self: end;
+  align-self: center;
+  font-size: 1.2rem;
 }
 
 .CommentCard-voting {
@@ -293,7 +358,6 @@ h1 {
   grid-row: 3;
   justify-self: start;
 
-  font-size: 1rem;
   display: flex;
 }
 
@@ -303,6 +367,31 @@ h1 {
 
 .CommentCard-plus {
   margin-left: 0.4rem;
+}
+
+@media screen and (min-width: 700px) {
+  .CommentCard-minus, .CommentCard-plus {
+    font-size: 1.4rem;
+  }
+}
+
+.CommentCard-date {
+  grid-column: 3;
+  grid-row: 3;
+  justify-self: end;
+  align-self: center;
+  font-size: 0.95rem;
+}
+
+@media screen and (min-width: 700px) {
+  .CommentCard-date {
+    font-size: 1.1rem;
+  }
+}
+
+.CommentCard-body {
+  grid-column: 1 / 4;
+  grid-row: 2;
 }
 
 .info-message {
@@ -329,34 +418,25 @@ h1 {
   padding: 2.4rem;
 }
 
-.CommentCard-date {
-  grid-column: 3;
-  grid-row: 3;
-  font-size: 0.8rem;
-}
-
-.CommentCard-body {
-  grid-column: 1 / 4;
-  grid-row: 2;
-}
-
 .QueryBar {
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  grid-template-rows: max-content, max-content;
-  grid-column-gap: 1.2rem;
-  grid-row-gap: 1.2rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  row-gap: 1.2rem;
   padding: 1.2rem;
   margin-bottom: 1.2rem;
 }
 
+.QueryBar-link {
+  font-size: 1.4rem;
+}
+
 .SortByDropdown {
-  grid-column: 1;
-  grid-row: 1;
   display: grid;
   grid-template-columns: repeat(2, max-content);
   grid-template-rows: max-content;
-  grid-column-gap: 1.2rem;
+  grid-column-gap: 1rem;
+  margin-right: 1.2rem;
 }
 
 .sort-label {
@@ -370,13 +450,11 @@ h1 {
 }
 
 .OrderToggle {
-  grid-column: 2;
-  grid-row: 1;
-
   display: grid;
   grid-template-columns: repeat(4, max-content);
   grid-template-rows: max-content;
-  grid-column-gap: 1.2rem;
+  grid-column-gap: 1rem;
+  accent-color: #88c0d0;
 }
 
 .OrderToggle-label-asc {
@@ -398,9 +476,6 @@ h1 {
 }
 
 .LimitDropdown {
-  grid-column: 1 / 3;
-  grid-row: 2;
-  justify-self: center;
   display: grid;
   grid-template-columns: repeat(2, max-content);
   grid-template-rows: max-content;
@@ -420,6 +495,7 @@ h1 {
 select {
   padding: 0.2rem;
   text-align: center;
+  font-size: 1rem;
 }
 
 .ErrorPage-back {

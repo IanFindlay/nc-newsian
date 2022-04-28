@@ -28,7 +28,7 @@ export default function TopicDropdown() {
         Topic
       </label>
       <select
-        id="topic"
+        id="topics"
         value={`/topics/${topic}`}
         disabled={isLoading}
         onChange={(e) => {
