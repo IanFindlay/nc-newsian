@@ -2,17 +2,18 @@
 
 ## Summary
 
-As part of the Northcoders' Bootcamp I created [this back-end project](https://github.com/IanFindlay/nc-news) - a restful API that uses a postgreSQL database of generated
-news data. NC-Newsian is the front-end to this project. Built using the React framework and styled with custom CSS, it serves as an illustration of how I would implement and design a site used to deliver written content in an appealing, user-focused and performant way. It was built using the mobile-first design paradigm with user stories driving the features and accessibility considerations made throughout. Some of the aspect I wish to highlight are:
+As part of the Northcoders' Bootcamp I created [this back-end project](https://github.com/IanFindlay/nc-news) - a restful API that uses a postgreSQL database of generated news data. NC-Newsian is the front-end to this project. Built using the React framework and styled with custom CSS, it serves as an illustration of how I would implement and design a site used to deliver written content in an appealing, user-focused and performant way. It was built using the mobile-first design paradigm with user stories driving the features and accessibility considerations made throughout. Some of the aspect I wish to highlight are:
 
 - The ability to filter articles by topic, sort and order them in various ways and decide upon how many articles to display per page
-- The above can be directly manipulated via the URL which dynamically updates to represent any non-default search parameters
+- The above can be directly manipulated via the URL which dynamically updates with the selected values
 - The ability to read an article and return to the page you came from with the search parameters you set still in place
-- The ability to post a comment, delete one of your comments and further interact with the content via up/down votes
+- The ability to post a comment, delete one of your comments and up/down vote comments made by others
+- The ability to up/down vote articles
+- A 'Random Article' button
 
 ## View a live version of the application
 
-You can view these, and other, features for yourself by visiting this [deployment of the app via Netlify]().
+You can view these, and other, features for yourself by visiting this [deployment of the app via Netlify](https://vibrant-jepsen-229497.netlify.app/).
 
 ## Run a local version
 
@@ -47,7 +48,3 @@ npm start
 ```
 
 This should automatically open a window in your default browser to the NC-Newsian homepage. If for some reason this does not happen navigate to http://localhost/3000 and explore it from there. Please note, whilst the app is running locally it is still making calls to a publicly available, Heroku-hosted API.
-
-## TODO Notes on the limitations of this example app
-
-Need to finalise design decisions before writing this section
