@@ -16,7 +16,7 @@ export default function LimitDropdown() {
       <select
         className="limit-select"
         defaultValue={limit || 10}
-        name="limit"
+        id="limit"
         onChange={(e) => {
           setSearchParams({
             sort_by: sortBy,

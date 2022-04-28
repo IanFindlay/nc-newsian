@@ -11,7 +11,7 @@ export default function QueryBar() {
       <OrderToggle />
       <LimitDropdown />
       <Link className="QueryBar-link" to="/">
-        reset
+        Reset
       </Link>
     </section>
   );

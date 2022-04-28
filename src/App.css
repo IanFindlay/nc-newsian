@@ -70,7 +70,6 @@ h1 {
 
 .Navigation-button-random {
   padding: 0.4rem;
-  color: #88c0d0;
   font-size: 1rem;
 }
 
@@ -90,6 +89,7 @@ h1 {
     justify-content: space-around;
     align-items: center;
     column-gap: 1.2rem;
+  margin-bottom: 1.6rem;
   }
 }
 
@@ -138,16 +138,23 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 1rem;
   margin-top: -1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 2.4rem;
 }
 
 .ArticleList-pagination > button {
   padding: 0.4rem;
+  font-size: 1rem;
 }
 
 .ArticleList-pagination > button:disabled {
   visibility: hidden;
+}
+
+.ArticleList-pagination > p {
+  font-size: 1.4rem;
 }
 
 .Article {
@@ -155,7 +162,7 @@ h1 {
   grid-template-columns: max-content 2fr max-content max-content;
   grid-template-rows: max-content max-content 1.6rem max-content 2fr max-content;
   margin: 1.2rem;
-  border: 2px solid darkgray;
+  border: 2px solid #e5e9f0;
   border-radius: 5px;
   padding: 0.6rem 0.6rem 0.6rem 1.8rem;
 }
@@ -256,14 +263,24 @@ h1 {
 }
 
 .Article-comments > button {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding: 0.4rem;
+}
+
+@media screen and (min-width: 700px) {
+  .Article-comments > button {
+    font-size: 1rem;
+  }
 }
 
 .PostComment {
   display: grid;
   align-items: center;
   justify-items: start;
+}
+
+.PostComment > button {
+  font-size: 0.8rem;
 }
 
 .Comments {
@@ -299,6 +316,7 @@ h1 {
   row-gap: 0.8rem;
   padding: 0.8rem;
   margin-bottom: 1.2rem;
+  max-width: 1000px;
 }
 
 .CommentCard-author {
@@ -306,6 +324,13 @@ h1 {
   grid-row: 1;
   font-size: 1rem;
   font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .CommentCard-author {
+    font-size: 1.4rem;
+  }
 }
 
 .CommentCard-button {
@@ -343,12 +368,24 @@ h1 {
   margin-left: 0.4rem;
 }
 
+@media screen and (min-width: 700px) {
+  .CommentCard-minus, .CommentCard-plus {
+    font-size: 1.4rem;
+  }
+}
+
 .CommentCard-date {
   grid-column: 3;
   grid-row: 3;
   justify-self: end;
   align-self: center;
   font-size: 0.95rem;
+}
+
+@media screen and (min-width: 700px) {
+  .CommentCard-date {
+    font-size: 1.1rem;
+  }
 }
 
 .CommentCard-body {
@@ -387,6 +424,10 @@ h1 {
   row-gap: 1.2rem;
   padding: 1.2rem;
   margin-bottom: 1.2rem;
+}
+
+.QueryBar-link {
+  font-size: 1.4rem;
 }
 
 .SortByDropdown {
@@ -454,10 +495,6 @@ select {
   padding: 0.2rem;
   text-align: center;
   font-size: 1rem;
-}
-
-.QueryBar-link {
-  color: #88c0d0;
 }
 
 .ErrorPage-back {
