@@ -1,5 +1,7 @@
 # NC-Newsian - A Northcoders' Bootcamp Front-End Portfolio Piece
 
+A live version of this app is [hosted here](https://newsian.findlayian.com).
+
 ## Summary
 
 As part of the Northcoders' Bootcamp I created [this back-end project](https://github.com/IanFindlay/nc-news) - a restful API that uses a postgreSQL database of generated news data. NC-Newsian is the front-end to this project. Built using the React framework and styled with custom CSS, it serves as an illustration of how I would implement and design a site used to deliver written content in an appealing, user-focused and performant way. It was built using the mobile-first design paradigm with user stories driving the features and accessibility considerations made throughout. Some of the aspects I wish to highlight are:
@@ -11,10 +13,6 @@ As part of the Northcoders' Bootcamp I created [this back-end project](https://g
 - The ability to up/down vote the articles and comments of other users
 - A 'Random Article' button
 - The ability to up/down vote articles
-
-## View a live version of the application
-
-You can view these, and other, features for yourself by visiting this [deployment of the app via Netlify](https://vibrant-jepsen-229497.netlify.app/).
 
 ## Run a local version
 
